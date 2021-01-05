@@ -3,6 +3,7 @@ from rest_framework import status
 from django.test import TestCase, Client
 from django.urls import reverse
 from ..serializers import PuppySerializer
+from ..models import *
 
 client=Client()
 

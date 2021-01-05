@@ -22,9 +22,11 @@ def get_delete_update(request, pk):
 
 @api_view(['GET', 'POST'])
 def get_post_puppies(request):
-    # get all puppies
+      # get all puppies
     if request.method == 'GET':
-        return Response({})
+        puppies = Puppy.objects.all()
+        serializer = PuppySerializer(puppies, many=True)
+        return Response(serializer.data)
     # insert a new record for a puppy
     elif request.method == 'POST':
-        return Response({})        
+        return Response({})
